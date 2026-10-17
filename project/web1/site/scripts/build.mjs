@@ -10,7 +10,11 @@ for (const directory of ['fonts', 'images', 'videos']) {
   const from = path.join(root, 'assets', directory);
   const to = path.join(out, 'assets', directory);
   await mkdir(to, { recursive: true });
-  for (const name of await readdir(from)) {
+  const names = await readdir(from).catch((error) => {
+    if (directory === 'videos' && error.code === 'ENOENT') return [];
+    throw error;
+  });
+  for (const name of names) {
     if (directory === 'fonts' && !['SpaceGrotesk.woff2', 'PretendardUI.woff2', 'Pretendard-LICENSE.txt', 'SpaceGrotesk-LICENSE.txt'].includes(name)) continue;
     if (directory === 'images' && name.endsWith('.jpg')) continue;
     await cp(path.join(from, name), path.join(to, name));
