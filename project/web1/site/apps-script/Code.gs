@@ -100,3 +100,41 @@ function saveSubmission_(data) {
     return { ok: true, receiptId: receipt, duplicate: false };
   } finally { lock.releaseLock(); }
 }
+
+/** 소유자가 편집기에서 한 번 실행하는 운영 시트 준비 함수입니다. 웹 API로 노출하지 않습니다. */
+function initializeArker() {
+  var id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID');
+  if (!id) throw new Error('SPREADSHEET_ID를 먼저 설정하세요.');
+  var book = SpreadsheetApp.openById(id);
+  var guide = book.getSheetByName('ARKER_운영안내');
+  if (!guide) {
+    var sheets = book.getSheets();
+    guide = sheets.length === 1 && sheets[0].getLastRow() === 0 ? sheets[0].setName('ARKER_운영안내') : book.insertSheet('ARKER_운영안내');
+  }
+  if (guide.getLastRow() === 0) {
+    var notes = [
+      ['ARKER 상담 운영', '안내'],
+      ['접수 사이트', 'https://jatu3.github.io/arker-showroom/'],
+      ['개인정보 보유 기간', '상담 종료 후 1년'],
+      ['상담 처리', '상태를 신규 → 상담 중 → 종료 순서로 관리합니다.'],
+      ['종료일 기록', '처리메모에 상담 종료일: YYYY-MM-DD를 기록합니다.'],
+      ['보유 기간 관리', '종료일부터 1년이 지난 행과 별도 사본을 담당자가 삭제합니다. 자동 삭제 기능은 없습니다.'],
+      ['접근 권한', '상담 담당자에게만 공유하며 웹에 게시하지 않습니다.'],
+      ['헤더 관리', '접수 탭의 첫 행 이름과 순서를 바꾸면 저장이 중단됩니다.'],
+      ['후속 검토', '상세 운영 설정은 프로젝트 wiki 폴더에서 검토합니다.']
+    ];
+    guide.getRange(1, 1, notes.length, 2).setValues(notes).setWrap(true);
+    guide.setColumnWidth(1, 180); guide.setColumnWidth(2, 640); guide.setFrozenRows(1);
+    guide.getRange(1, 1, 1, 2).setBackground('#233d35').setFontColor('#fff8ee').setFontWeight('bold');
+  }
+  ['ARKER_견적요청', 'ARKER_고객문의'].forEach(function(name) {
+    var sheet = book.getSheetByName(name) || book.insertSheet(name);
+    if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
+    if (sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0].join('|') !== HEADERS.join('|')) throw new Error('헤더를 확인하세요: ' + name);
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, HEADERS.length).setBackground('#233d35').setFontColor('#fff8ee').setFontWeight('bold');
+    sheet.setColumnWidth(11, 360); sheet.setColumnWidth(15, 300);
+  });
+  SpreadsheetApp.flush();
+  return { ok: true, tabs: ['ARKER_운영안내', 'ARKER_견적요청', 'ARKER_고객문의'] };
+}
