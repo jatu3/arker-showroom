@@ -1,0 +1,6 @@
+**/dist/
+**/node_modules/
+**/__pycache__/
+.env*
+.clasprc*
+.DS_Store
