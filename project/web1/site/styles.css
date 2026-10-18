@@ -170,12 +170,12 @@ figcaption{font-size:12px;color:var(--muted);line-height:1.7;margin-top:15px}
 .naver-map{width:100%;height:100%;color:#233d35}
 .naver-map img{max-width:none}
 .naver-map[hidden],.map-fallback[hidden]{display:none}
-.map-fallback{height:100%;padding:42px;display:flex;flex-direction:column;align-items:start;justify-content:center}
-.map-fallback>p:first-child{font-size:12px;color:var(--muted);margin-bottom:24px}
-.map-fallback strong{font-size:clamp(60px,6vw,92px);font-weight:650;letter-spacing:-.07em;line-height:1.05}
-.map-fallback strong span{color:var(--accent)}
-.map-fallback>p:nth-of-type(2){font-size:13px;max-width:32ch;line-height:1.8;color:var(--muted);margin-top:28px}
-.map-fallback .text-link{font-size:12px;margin-top:16px}
+.map-fallback{height:100%;position:relative;overflow:hidden;background:#f4f3ef}
+.map-static-link{display:block;width:100%;height:100%;position:relative;text-decoration:none;color:inherit}
+.map-static-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .35s ease}
+.map-static-link:hover .map-static-img{transform:scale(1.02)}
+.map-static-badge{position:absolute;bottom:16px;right:16px;background:rgba(20,24,21,.85);backdrop-filter:blur(6px);color:#fff;font-size:12px;font-weight:500;padding:8px 14px;border-radius:4px;display:inline-flex;align-items:center;gap:6px;transition:background .2s}
+.map-static-link:hover .map-static-badge{background:rgba(20,24,21,.98)}
 .map-status{font-size:12px;line-height:1.8;color:var(--muted);margin-top:16px;min-height:22px}
 @media(max-width:1100px){.location-layout{gap:5%;grid-template-columns:1fr 1fr}.location-map-frame{height:510px}.map-fallback{padding:30px}.location-actions{gap:18px}.location-map-link{font-size:12px;padding:17px 18px}}
 @media(max-width:767px){.location-layout{grid-template-columns:1fr;gap:35px}.location-name{font-size:28px;margin-bottom:28px}.location-details address{font-size:23px}.location-details dd{font-size:13px}.location-details dd br{display:none}.location-actions{gap:22px}.location-map-frame{height:380px}.map-fallback{padding:30px}.map-fallback strong{font-size:68px}.map-fallback>p:first-child{margin-bottom:20px}.map-fallback>p:nth-of-type(2){margin-top:22px;font-size:12px}.map-fallback .text-link{margin-top:12px}.site-footer .footer-meta a{width:auto}.site-footer .footer-meta{column-gap:20px}}
