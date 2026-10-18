@@ -10,9 +10,9 @@
   <meta property="og:description" content="문을 열면, 다른 일상. 감성에 공학을 더하는 도어 쇼룸.">
   <link rel="icon" href="data:,">
   <link rel="preload" href="./assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=20261018-content">
-  <script src="./config.js"></script>
-  <script src="./app.js?v=20261018-content" type="module"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261018-location">
+  <script src="./config.js?v=20261018-location"></script>
+  <script src="./app.js?v=20261018-location" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문 바로가기</a>
@@ -20,7 +20,7 @@
     <a href="#" class="brand" aria-label="ARKER 아커 홈"><img src="./assets/images/logo.png" width="200" height="40" alt="ARKER"><span>AFFECTIVE ENGINEERING</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">메뉴</button>
     <nav id="navigation" aria-label="주요 메뉴">
-      <a href="#collection">제품</a><a href="#engineering">기술</a><a href="#story">브랜드</a><a href="#contact" class="nav-cta">견적 문의 <span aria-hidden="true">↗</span></a>
+      <a href="#collection">제품</a><a href="#engineering">기술</a><a href="#story">브랜드</a><a href="#location">찾아오는 길</a><a href="#contact" class="nav-cta">견적 문의 <span aria-hidden="true">↗</span></a>
     </nav>
     <button class="theme-toggle" aria-label="화면 테마 변경">테마</button>
   </header>
@@ -101,6 +101,12 @@
       <details><summary>접수한 문의나 사용 중인 제품은 어떻게 확인하나요?<span aria-hidden="true">＋</span></summary><p>접수 완료 시 표시되는 접수번호를 보관해 주세요. 후속 문의에는 접수번호를, 사용 중인 제품 문의에는 모델명·시리얼과 증상을 함께 남겨 주세요. 기존 접수 내용을 확인하는 데 도움이 됩니다.</p></details>
     </div></div></section>
 
+    <section id="location" class="location wrap section-space" aria-labelledby="location-title">
+      <div class="content-heading reveal"><h2 id="location-title">찾아오는 길.</h2><p>아커 사업장 위치를 안내합니다.<br>방문 전 상담으로 일정과 방문 장소를 확인해 주세요.</p></div>
+      <div class="location-layout reveal"><div class="location-info"><p class="location-name">ARKER</p><dl class="location-details"><div><dt>공개 사업장 주소</dt><dd><address id="office-address">경기도 화성시 효행구 비봉면<br>푸른들판로1125번길 35</address></dd></div><div><dt>방문 안내</dt><dd>제품 확인과 방문 상담, 직접 수령을 원하시면<br>먼저 문의를 남겨 일정과 가능 여부를 확인해 주세요.</dd></div></dl><div class="location-actions"><a class="button location-map-link" data-naver-location href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%ED%9A%A8%ED%96%89%EA%B5%AC%20%EB%B9%84%EB%B4%89%EB%A9%B4%20%ED%91%B8%EB%A5%B8%EB%93%A4%ED%8C%90%EB%A1%9C1125%EB%B2%88%EA%B8%B8%2035" target="_blank" rel="noopener noreferrer">네이버 지도·길찾기 <span aria-hidden="true">↗</span></a><button type="button" class="text-link" id="copy-address">주소 복사 <span aria-hidden="true">＋</span></button></div><p id="address-copy-status" class="form-note" role="status"></p><button type="button" class="text-link" id="visit-inquiry">방문 상담 문의 <span aria-hidden="true">↗</span></button><p class="location-source">공개 주소 안내: <a href="https://arker.co.kr/shopinfo/company.html" target="_blank" rel="noopener noreferrer">아커 공식 회사 소개 ↗</a></p></div>
+      <div class="location-map-wrap"><div id="location-map-frame" class="location-map-frame" data-state="external"><div id="naver-map" class="naver-map" role="region" aria-label="네이버 지도에서 아커 사업장 위치" tabindex="0" hidden></div><div id="map-fallback" class="map-fallback"><p>아커 사업장 위치</p><strong>화성<br>비봉<span>.</span></strong><p>위치와 이동 경로를 네이버 지도에서 확인하세요.</p><a class="text-link" data-naver-location href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%99%94%EC%84%B1%EC%8B%9C%20%ED%9A%A8%ED%96%89%EA%B5%AC%20%EB%B9%84%EB%B4%89%EB%A9%B4%20%ED%91%B8%EB%A5%B8%EB%93%A4%ED%8C%90%EB%A1%9C1125%EB%B2%88%EA%B8%B8%2035" target="_blank" rel="noopener noreferrer">네이버 지도에서 보기 <span aria-hidden="true">↗</span></a></div></div><p id="map-status" class="map-status" role="status">네이버 지도에서 도착지를 확인한 뒤 출발지를 입력하면 이동 경로를 확인할 수 있습니다.</p></div></div>
+    </section>
+
     <section id="contact" class="contact wrap section-space" aria-labelledby="contact-title"><div class="contact-intro reveal"><h2 id="contact-title">어떤 공간을<br>만들고 싶으세요<span class="accent">?</span></h2><p>견적부터 제품, 시공에 관한 궁금증까지.<br>문의가 저장되면 화면에 접수번호가 표시됩니다.<br>담당자가 남겨주신 연락처로 상담을 이어갑니다.</p><div class="contact-prep"><h3>이 내용이 있으면 더 정확해요.</h3><p>설치 지역과 대략적인 규격,<br>희망 모델 또는 구성,<br>신축·교체 여부와 원하는 시기.</p><a href="#faq" class="text-link">문의 전 FAQ 확인하기 <span aria-hidden="true">↗</span></a></div></div>
       <form id="inquiry-form" class="inquiry-form">
         <fieldset class="inquiry-type"><legend>문의 유형</legend><label><input type="radio" name="kind" value="quote" checked><span>견적 요청</span></label><label><input type="radio" name="kind" value="contact"><span>고객 문의</span></label></fieldset>
@@ -116,7 +122,7 @@
       </form>
     </section>
   </main>
-  <footer class="site-footer"><div class="wrap"><a href="#" aria-label="ARKER 페이지 처음으로" class="footer-word">ARKER<span class="accent">.</span></a><div class="footer-meta"><p>주(住)를 위한 모든 것.<br>AFFECTIVE ENGINEERING</p><p>© ARKER. All rights reserved.</p><a href="#privacy" class="privacy-trigger">개인정보 수집 안내</a></div></div></footer>
+  <footer class="site-footer"><div class="wrap"><a href="#" aria-label="ARKER 페이지 처음으로" class="footer-word">ARKER<span class="accent">.</span></a><div class="footer-meta"><p>주(住)를 위한 모든 것.<br>AFFECTIVE ENGINEERING</p><p>© ARKER. All rights reserved.</p><a href="#location">찾아오는 길</a><a href="#privacy" class="privacy-trigger">개인정보 수집 안내</a></div></div></footer>
 
   <dialog id="product-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="제품 상세 닫기">닫기 ×</button><div class="dialog-product"><div class="product-gallery"><figure><img id="dialog-image" src="./assets/images/gd001.webp" alt="AHS-GD001 싱글 구성" width="1400" height="1400"><figcaption id="gallery-caption">싱글 구성</figcaption></figure><div class="gallery-controls" role="group" aria-label="제품 구성 사진"><button type="button" data-product-view="0" aria-pressed="true">싱글</button><button type="button" data-product-view="1" aria-pressed="false">좌소대</button><button type="button" data-product-view="2" aria-pressed="false">우소대</button><button type="button" data-product-view="3" aria-pressed="false">양소대</button><button type="button" data-product-view="4" aria-pressed="false">색상</button></div><p id="gallery-status" class="form-note" role="status"></p></div><div class="dialog-copy"><p class="product-family">G-DOOR SYSTEM ENTRANCE</p><h2 id="dialog-title">AHS-GD001</h2><h3 id="dialog-tagline">목재의 결을 살린 차분한 현관</h3><p id="dialog-description"></p><dl class="dialog-facts"><div><dt>디자인 포인트</dt><dd id="dialog-design"></dd></div><div><dt>함께 선택하는 옵션</dt><dd>형태와 규격, 프레임 마감, 경첩 방향, 호환 도어록</dd></div></dl><p class="form-note">사진은 구성 참고용입니다. 제작 사양, 금액과 일정은 상담으로 확정합니다.</p><button class="submit-button" id="product-inquiry">이 제품 견적 문의 <span aria-hidden="true">↗</span></button><div class="dialog-links"><a href="#guide" id="dialog-guide">구성 선택 가이드 ↗</a><a href="https://arker.co.kr/product/detail.html?product_no=19" id="dialog-source" target="_blank" rel="noopener noreferrer">기존 제품 자료 ↗</a></div></div></div></dialog>
   <dialog id="privacy-dialog" aria-labelledby="privacy-title"><button class="dialog-close" aria-label="개인정보 안내 닫기">닫기 ×</button><h2 id="privacy-title">상담을 위한 개인정보 수집·이용</h2><dl><dt>수집 목적</dt><dd>제품 안내, 견적 및 고객 문의 응대</dd><dt>수집 항목</dt><dd>필수: 이름, 연락처, 문의 내용<br>선택: 이메일, 관심 제품, 설치 지역, 규격</dd><dt>보유 기간</dt><dd id="retention-text"></dd><dt>동의 거부</dt><dd>수집·이용에 동의하지 않을 수 있으며, 미동의 시 온라인 상담 접수가 제한됩니다.</dd></dl><p id="privacy-contact" class="form-note"></p></dialog>

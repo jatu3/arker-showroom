@@ -1,4 +1,5 @@
 import { catalog, doorViews, productImage } from './catalog.js';
+import { initLocation } from './location.js?v=20261018-location';
 const config = window.ARKER_CONFIG || {};
 const $ = (selector) => document.querySelector(selector);
 const products = Object.fromEntries(Object.entries(catalog).map(([key, item]) => [key, item.name]));
@@ -120,6 +121,16 @@ $('#layout-inquiry').addEventListener('click', () => {
   const line = `희망 구성: ${selectedLayout.label} (최종 규격 상담 희망)`;
   if (!message.value.includes(line)) message.value = [message.value.trim(), line].filter(Boolean).join('\n');
 });
+$('#visit-inquiry').addEventListener('click', () => {
+  const form = $('#inquiry-form');
+  form.elements.kind.value = 'contact';
+  updateKind();
+  const line = '방문 상담 문의: 희망 날짜와 시간을 확인하고 싶습니다.';
+  const message = form.elements.message;
+  if (!message.value.includes(line)) message.value = [message.value.trim(), line].filter(Boolean).join('\n');
+  $('#contact').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+  form.elements.name.focus({ preventScroll: true });
+});
 document.querySelectorAll('#privacy-open, .privacy-trigger').forEach((link) => link.addEventListener('click', (event) => { event.preventDefault(); $('#privacy-dialog').showModal(); }));
 $('#retention-text').textContent = config.retentionText || '운영 전 보유 기간을 확정해야 합니다.';
 $('#privacy-contact').textContent = config.privacyContact || '';
@@ -204,3 +215,5 @@ document.querySelectorAll('button, .button, .text-link, .nav-cta').forEach((cont
     setTimeout(() => wave.remove(), 700);
   });
 });
+
+initLocation(config);
