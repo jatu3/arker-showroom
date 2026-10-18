@@ -1,5 +1,5 @@
 import { catalog, doorViews, productImage } from './catalog.js';
-import { initLocation } from './location.js?v=20261018-location';
+import { initLocation } from './location.js?v=20261018-location-2';
 const config = window.ARKER_CONFIG || {};
 const $ = (selector) => document.querySelector(selector);
 const products = Object.fromEntries(Object.entries(catalog).map(([key, item]) => [key, item.name]));

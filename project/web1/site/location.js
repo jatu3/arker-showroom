@@ -14,8 +14,12 @@ export function initLocation(config) {
   document.querySelectorAll('[data-naver-location]').forEach((link) => { link.href = searchUrl; });
   document.querySelector('#copy-address').addEventListener('click', async () => {
     const message = document.querySelector('#address-copy-status');
+    let timeout;
     try {
-      await navigator.clipboard.writeText(officeLocation.address);
+      await Promise.race([
+        navigator.clipboard.writeText(officeLocation.address),
+        new Promise((_, reject) => { timeout = setTimeout(() => reject(new Error('Clipboard permission timeout')), 2000); })
+      ]);
       message.textContent = '주소를 복사했습니다.';
     } catch {
       const address = document.querySelector('#office-address');
@@ -25,7 +29,7 @@ export function initLocation(config) {
       selection.removeAllRanges();
       selection.addRange(range);
       message.textContent = '주소를 선택했습니다. 길게 누르거나 복사 단축키로 복사해 주세요.';
-    }
+    } finally { clearTimeout(timeout); }
   });
 
   const clientId = String(config.naverMapClientId || '').trim();
