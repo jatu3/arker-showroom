@@ -95,31 +95,50 @@ $('#product-inquiry').addEventListener('click', async () => { await closeDialog(
 $('#dialog-guide').addEventListener('click', async (event) => {
   event.preventDefault();
   await closeDialog($('#product-dialog'));
+  $('#layout-model').value = selectedModel;
+  updateLayoutPreview();
   $('#guide').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth' });
 });
 document.querySelectorAll('[data-inquiry]').forEach((button) => button.addEventListener('click', () => startInquiry(button.dataset.inquiry)));
 
 let selectedLayout = doorViews[0];
 let layoutRequest = 0;
-document.querySelectorAll('[data-layout]').forEach((button) => button.addEventListener('click', async () => {
-  selectedLayout = doorViews.find((view) => view.key === button.dataset.layout);
+async function updateLayoutPreview() {
+  const model = $('#layout-model').value;
+  const item = catalog[model];
   const request = ++layoutRequest;
   const image = $('#layout-image');
-  image.src = productImage('gd001', selectedLayout);
-  image.alt = `AHS-GD001 ${selectedLayout.label} 구성 예시`;
+  image.src = productImage(model, selectedLayout);
+  image.alt = `${item.name} ${selectedLayout.label} 구성 예시`;
+  $('#layout-caption').textContent = `${item.name} · ${selectedLayout.label} 구성 참고 사진`;
+  $('#layout-model-detail').textContent = item.detail;
+  $('#layout-selected-model').textContent = item.name;
   $('#layout-title').textContent = selectedLayout.label;
   $('#layout-size').textContent = selectedLayout.size;
   $('#layout-description').textContent = selectedLayout.description;
+  const finishImage = $('#finish-image');
+  finishImage.src = productImage(model, doorViews.find((view) => view.key === 'colors'));
+  finishImage.alt = `${item.name} 월넛, 다크브라운, 그레이, 블랙 프레임의 실제 제품 비교 이미지`;
+  $('#finish-caption').textContent = `${item.name} 프레임 색상 참고`;
   $('#layout-status').textContent = '구성 사진을 불러오는 중입니다.';
-  document.querySelectorAll('[data-layout]').forEach((control) => control.setAttribute('aria-pressed', String(control === button)));
+  document.querySelectorAll('[data-layout]').forEach((control) => control.setAttribute('aria-pressed', String(control.dataset.layout === selectedLayout.key)));
   try { await image.decode(); if (request === layoutRequest) $('#layout-status').textContent = ''; }
   catch { if (request === layoutRequest) $('#layout-status').textContent = '사진을 불러오지 못했습니다. 다른 구성을 선택해 주세요.'; }
+}
+$('#layout-model').addEventListener('change', updateLayoutPreview);
+document.querySelectorAll('[data-layout]').forEach((button) => button.addEventListener('click', () => {
+  selectedLayout = doorViews.find((view) => view.key === button.dataset.layout);
+  updateLayoutPreview();
 }));
+let guideInquiryLine = '';
 $('#layout-inquiry').addEventListener('click', () => {
-  startInquiry('G-DOOR 현관문');
+  const item = catalog[$('#layout-model').value];
+  startInquiry(item.name);
   const message = $('#inquiry-form [name=message]');
-  const line = `희망 구성: ${selectedLayout.label} (최종 규격 상담 희망)`;
-  if (!message.value.includes(line)) message.value = [message.value.trim(), line].filter(Boolean).join('\n');
+  const line = `선택한 도어: ${item.name} / ${selectedLayout.label} (최종 규격 상담 희망)`;
+  if (guideInquiryLine && message.value.includes(guideInquiryLine)) message.value = message.value.replace(guideInquiryLine, line);
+  else if (!message.value.includes(line)) message.value = [message.value.trim(), line].filter(Boolean).join('\n');
+  guideInquiryLine = line;
 });
 $('#visit-inquiry').addEventListener('click', () => {
   const form = $('#inquiry-form');

@@ -10,9 +10,9 @@
   <meta property="og:description" content="문을 열면, 다른 일상. 감성에 공학을 더하는 도어 쇼룸.">
   <link rel="icon" href="data:,">
   <link rel="preload" href="./assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=20261018-options">
+  <link rel="stylesheet" href="./styles.css?v=20261018-model-guide">
   <script src="./config.js?v=20261018-location"></script>
-  <script src="./app.js?v=20261018-location-2" type="module"></script>
+  <script src="./app.js?v=20261018-model-guide" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문 바로가기</a>
@@ -62,16 +62,16 @@
 
 
     <section id="guide" class="door-guide section-space" aria-labelledby="guide-title"><div class="wrap">
-      <div class="content-heading reveal"><h2 id="guide-title">우리 집 입구에<br>어떤 문이 맞을까요?</h2><p>먼저 형태를 고르고, 프레임과 개폐 방향을 살펴보세요.<br>같은 디자인도 구성에 따라 입구의 인상이 달라집니다.</p></div>
+      <div class="content-heading reveal"><h2 id="guide-title">우리 집 입구에<br>어떤 문이 맞을까요?</h2><p>모델과 형태를 함께 고르고, 프레임과 개폐 방향을 살펴보세요.<br>다섯 가지 모델을 원하는 구성으로 비교할 수 있습니다.</p></div>
       <div class="layout-guide reveal">
-        <figure class="layout-preview"><img id="layout-image" src="./assets/images/gd001.webp" width="1400" height="1400" alt="AHS-GD001 싱글 구성 예시" loading="lazy"><figcaption>AHS-GD001 구성 참고 사진</figcaption></figure>
-        <div class="layout-choice"><div class="layout-buttons" role="group" aria-label="현관문 형태 선택"><button type="button" data-layout="single" aria-pressed="true">싱글</button><button type="button" data-layout="left" aria-pressed="false">좌소대</button><button type="button" data-layout="right" aria-pressed="false">우소대</button><button type="button" data-layout="double" aria-pressed="false">양소대</button></div>
-          <div class="layout-copy" aria-live="polite"><h3 id="layout-title">싱글</h3><p id="layout-size" class="layout-size">W1000 × H2200 mm</p><p id="layout-description">한 짝의 문으로 구성하는 기본형입니다. 현관의 유효 개구부와 문이 열리는 공간을 함께 확인하세요.</p></div>
+        <figure class="layout-preview"><img id="layout-image" src="./assets/images/gd001.webp" width="1400" height="1400" alt="AHS-GD001 싱글 구성 예시" loading="lazy"><figcaption id="layout-caption">AHS-GD001 · 싱글 구성 참고 사진</figcaption></figure>
+        <div class="layout-choice"><div class="layout-model-choice"><label for="layout-model">모델 선택</label><select id="layout-model" aria-describedby="layout-model-detail"><option value="gd001">AHS-GD001 · 차분한 우드</option><option value="gd001fd">AHS-GD001FD · 우드와 원형 장식</option><option value="gd902">AHS-GD902 · 패턴과 수직선</option><option value="gd200">AHS-GD200 · 사각 패턴과 가는 선</option><option value="gd100">AHS-GD100 · 색면과 수직선</option></select><p id="layout-model-detail">목재 무늬 패널과 단정한 프레임</p></div><p id="layout-shape-label" class="layout-control-label">구성 선택</p><div class="layout-buttons" role="group" aria-label="현관문 형태 선택"><button type="button" data-layout="single" aria-pressed="true">싱글</button><button type="button" data-layout="left" aria-pressed="false">좌소대</button><button type="button" data-layout="right" aria-pressed="false">우소대</button><button type="button" data-layout="double" aria-pressed="false">양소대</button></div>
+          <div class="layout-copy" aria-live="polite" aria-atomic="true"><p id="layout-selected-model" class="layout-selected-model">AHS-GD001</p><h3 id="layout-title">싱글</h3><p id="layout-size" class="layout-size">W1000 × H2200 mm</p><p id="layout-description">한 짝의 문으로 구성하는 기본형입니다. 현관의 유효 개구부와 문이 열리는 공간을 함께 확인하세요.</p></div>
           <p class="guide-note">규격은 문틀 외경 기준의 구성 예시입니다. 좌우 방향은 건물 외부에서 바라보는 기준이며, 실제 제작 치수는 현장 조건을 확인해 확정합니다.</p><p id="layout-status" class="form-note" role="status"></p>
           <button type="button" id="layout-inquiry" class="text-link">이 구성으로 상담하기 <span aria-hidden="true">↗</span></button>
         </div>
       </div>
-      <div class="finish-guide reveal"><div><h3>프레임도,<br>공간의 색에 맞게.</h3><p>월넛, 다크브라운, 그레이, 블랙.<br>패널과 외벽의 조합을 함께 비교해 보세요.</p><p class="guide-note">사진과 화면 설정에 따라 실제 색감은 다를 수 있습니다. 주문 전 마감을 확인해 주세요.</p></div><figure><img src="./assets/images/gd001-colors.webp" width="1000" height="1000" alt="월넛, 다크브라운, 그레이, 블랙 프레임의 실제 제품 비교 이미지" loading="lazy"><figcaption>G-DOOR 프레임 색상 참고</figcaption></figure></div>
+      <div class="finish-guide reveal"><div><h3>프레임도,<br>공간의 색에 맞게.</h3><p>월넛, 다크브라운, 그레이, 블랙.<br>패널과 외벽의 조합을 함께 비교해 보세요.</p><p class="guide-note">사진과 화면 설정에 따라 실제 색감은 다를 수 있습니다. 주문 전 마감을 확인해 주세요.</p></div><figure><img id="finish-image" src="./assets/images/gd001-colors.webp" width="1000" height="1000" alt="월넛, 다크브라운, 그레이, 블랙 프레임의 실제 제품 비교 이미지" loading="lazy"><figcaption id="finish-caption">AHS-GD001 프레임 색상 참고</figcaption></figure></div>
       <div id="door-options" class="option-notes reveal"><article><figure><img src="./assets/images/option-transom.webp" srcset="./assets/images/option-transom-mobile.webp 640w, ./assets/images/option-transom.webp 1200w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 64px) * .455), (max-width: 1440px) calc((100vw - 112px) * .455), 605px" width="1200" height="800" alt="청록색 현관문 위에 가로 프레임으로 구분된 고정 유리 패널을 더한 상부픽스 개념 이미지" loading="lazy" decoding="async"><figcaption>문 위쪽에 더하는 고정 패널, 상부픽스.</figcaption></figure><h3>상부픽스와 비규격</h3><p>입구가 높다면 상부 고정 패널을 더하는 구성을 검토할 수 있습니다. 비규격은 가로·세로 치수와 현장 조건을 함께 보내 주세요.</p></article><article><figure><img src="./assets/images/option-hardware.webp" srcset="./assets/images/option-hardware-mobile.webp 640w, ./assets/images/option-hardware.webp 1200w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 64px) * .455), (max-width: 1440px) calc((100vw - 112px) * .455), 605px" width="1200" height="800" alt="문과 문틀을 연결하는 금속 경첩을 왼쪽에, 레버 손잡이가 달린 스마트 도어록을 오른쪽에 나란히 보여주는 개념 이미지" loading="lazy" decoding="async"><figcaption>왼쪽은 경첩, 오른쪽은 스마트 도어록.</figcaption></figure><h3>경첩과 도어록</h3><p>문이 열리는 방향과 주변 동선을 먼저 확인합니다. 수동 키 또는 호환 스마트 도어록 옵션은 선택한 구성에 맞춰 안내합니다.</p></article><p class="option-image-note">두 이미지는 구조와 옵션의 이해를 돕기 위한 AI 생성 개념 이미지입니다. 실제 제작 가능 여부와 부품 사양은 상담 시 확인합니다.</p></div>
     </div></section>
 
