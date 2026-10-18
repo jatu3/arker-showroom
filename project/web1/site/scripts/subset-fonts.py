@@ -5,7 +5,7 @@ from pathlib import Path
 from fontTools import subset
 ROOT = Path(__file__).resolve().parents[1]
 font_dir = ROOT / 'assets/fonts'
-text = ''.join((ROOT / name).read_text() for name in ['index.html', 'app.js', 'config.js', 'apps-script/Code.gs'])
+text = ''.join((ROOT / name).read_text() for name in ['index.html', 'app.js', 'catalog.js', 'config.js', 'apps-script/Code.gs'])
 codes = set(map(ord, text)) | set(range(32, 256))
 for source, target in [('PretendardVariable.woff2', 'PretendardUI.woff2'), ('SpaceGrotesk.ttf', 'SpaceGrotesk.woff2')]:
     options = subset.Options()

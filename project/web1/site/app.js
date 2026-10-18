@@ -1,6 +1,7 @@
+import { catalog, doorViews, productImage } from './catalog.js';
 const config = window.ARKER_CONFIG || {};
 const $ = (selector) => document.querySelector(selector);
-const products = { gd001: 'AHS-GD001', gd001fd: 'AHS-GD001FD', gd902: 'AHS-GD902', gd200: 'AHS-GD200', gd100: 'AHS-GD100' };
+const products = Object.fromEntries(Object.entries(catalog).map(([key, item]) => [key, item.name]));
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const menu = $('.menu-toggle');
 menu.addEventListener('click', () => {
@@ -16,7 +17,7 @@ try { const theme = localStorage.getItem('arker-theme'); if (['dark', 'light'].i
 const systemTheme = matchMedia('(prefers-color-scheme: dark)');
 function syncThemeLabel() {
   const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : systemTheme.matches;
-  $('.theme-toggle').setAttribute('aria-label', dark ? '밝은 테마로 변경' : '어두운 테마로 변경');
+  $('.theme-toggle').setAttribute('aria-label', dark ? '테마: 밝은 화면으로 변경' : '테마: 어두운 화면으로 변경');
 }
 syncThemeLabel();
 systemTheme.addEventListener('change', syncThemeLabel);
@@ -35,12 +36,37 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 }
 let selectedProduct = '';
+let selectedModel = 'gd001';
+let galleryRequest = 0;
+async function showProductView(index) {
+  const request = ++galleryRequest;
+  const view = doorViews[index];
+  const image = $('#dialog-image');
+  image.src = productImage(selectedModel, view);
+  image.alt = `${selectedProduct} ${view.label} 구성 사진`;
+  $('#gallery-caption').textContent = view.key === 'colors' ? '월넛 / 다크브라운 / 그레이 / 블랙 프레임 참고' : `${view.label} 구성`;
+  $('#gallery-status').textContent = '사진을 불러오는 중입니다.';
+  document.querySelectorAll('[data-product-view]').forEach((button) => button.setAttribute('aria-pressed', String(Number(button.dataset.productView) === index)));
+  try {
+    await image.decode();
+    if (request === galleryRequest) $('#gallery-status').textContent = '';
+  } catch {
+    if (request === galleryRequest) $('#gallery-status').textContent = '사진을 불러오지 못했습니다. 다른 구성을 선택하거나 잠시 후 다시 열어 주세요.';
+  }
+}
+document.querySelectorAll('[data-product-view]').forEach((button) => button.addEventListener('click', () => showProductView(Number(button.dataset.productView))));
 document.querySelectorAll('[data-product]').forEach((button) => button.addEventListener('click', () => {
+  selectedModel = button.dataset.product;
+  const item = catalog[selectedModel];
   selectedProduct = products[button.dataset.product];
   $('#dialog-title').textContent = selectedProduct;
-  $('#dialog-image').src = `./assets/images/${button.dataset.product}.webp`;
-  $('#dialog-image').alt = `${selectedProduct} 제품 정면`;
+  $('#dialog-tagline').textContent = item.title;
+  $('#dialog-description').textContent = item.description;
+  $('#dialog-design').textContent = item.detail;
+  $('#dialog-source').href = `https://arker.co.kr/product/detail.html?product_no=${item.source}`;
+  showProductView(0);
   $('#product-dialog').showModal();
+  $('#product-dialog').scrollTop = 0;
 }));
 async function closeDialog(dialog) {
   if (dialog.classList.contains('is-closing')) return;
@@ -65,7 +91,35 @@ function startInquiry(product) {
   $('#inquiry-form [name=name]').focus({ preventScroll: true });
 }
 $('#product-inquiry').addEventListener('click', async () => { await closeDialog($('#product-dialog')); startInquiry(selectedProduct); });
+$('#dialog-guide').addEventListener('click', async (event) => {
+  event.preventDefault();
+  await closeDialog($('#product-dialog'));
+  $('#guide').scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+});
 document.querySelectorAll('[data-inquiry]').forEach((button) => button.addEventListener('click', () => startInquiry(button.dataset.inquiry)));
+
+let selectedLayout = doorViews[0];
+let layoutRequest = 0;
+document.querySelectorAll('[data-layout]').forEach((button) => button.addEventListener('click', async () => {
+  selectedLayout = doorViews.find((view) => view.key === button.dataset.layout);
+  const request = ++layoutRequest;
+  const image = $('#layout-image');
+  image.src = productImage('gd001', selectedLayout);
+  image.alt = `AHS-GD001 ${selectedLayout.label} 구성 예시`;
+  $('#layout-title').textContent = selectedLayout.label;
+  $('#layout-size').textContent = selectedLayout.size;
+  $('#layout-description').textContent = selectedLayout.description;
+  $('#layout-status').textContent = '구성 사진을 불러오는 중입니다.';
+  document.querySelectorAll('[data-layout]').forEach((control) => control.setAttribute('aria-pressed', String(control === button)));
+  try { await image.decode(); if (request === layoutRequest) $('#layout-status').textContent = ''; }
+  catch { if (request === layoutRequest) $('#layout-status').textContent = '사진을 불러오지 못했습니다. 다른 구성을 선택해 주세요.'; }
+}));
+$('#layout-inquiry').addEventListener('click', () => {
+  startInquiry('G-DOOR 현관문');
+  const message = $('#inquiry-form [name=message]');
+  const line = `희망 구성: ${selectedLayout.label} (최종 규격 상담 희망)`;
+  if (!message.value.includes(line)) message.value = [message.value.trim(), line].filter(Boolean).join('\n');
+});
 document.querySelectorAll('#privacy-open, .privacy-trigger').forEach((link) => link.addEventListener('click', (event) => { event.preventDefault(); $('#privacy-dialog').showModal(); }));
 $('#retention-text').textContent = config.retentionText || '운영 전 보유 기간을 확정해야 합니다.';
 $('#privacy-contact').textContent = config.privacyContact || '';

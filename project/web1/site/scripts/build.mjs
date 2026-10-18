@@ -5,7 +5,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
-for (const entry of ['index.html', 'styles.css', 'app.js', 'config.js', '.nojekyll']) await cp(path.join(root, entry), path.join(out, entry));
+for (const entry of ['index.html', 'styles.css', 'app.js', 'catalog.js', 'config.js', '.nojekyll']) await cp(path.join(root, entry), path.join(out, entry));
 for (const directory of ['fonts', 'images', 'videos']) {
   const from = path.join(root, 'assets', directory);
   const to = path.join(out, 'assets', directory);
