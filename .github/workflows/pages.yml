@@ -2,7 +2,7 @@ name: Deploy ARKER static showroom
 on:
   push:
     branches: [main]
-    paths: ['project/web1/site/**', '.github/workflows/pages.yml']
+    paths: ['project/web1/site/**', 'project/web3/site/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +25,15 @@ jobs:
       - uses: actions/configure-pages@v5
       - run: npm run check
       - run: npm run build
+      # web3 영상 방송국(ARKER TV)을 같은 Pages 사이트의 /web3/ 아래에 둔다.
+      - name: Build web3 into /web3/
+        working-directory: project/web3/site
+        run: |
+          node --check app.js && node --check intake.js && node --check config.js
+          node scripts/build.mjs
+          rm -rf ../../web1/site/dist/web3
+          cp -R dist ../../web1/site/dist/web3
+          du -sh ../../web1/site/dist
       - uses: actions/upload-pages-artifact@v4
         with:
           path: project/web1/site/dist
