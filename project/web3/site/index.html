@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3fa9f5">
+  <meta name="description" content="문 하나 바꿨더니 온 동네가 난리여! 복순 할매네 쇼츠 10편과 긴 이야기 2편을 방송하는 금호아트도어 ARKER TV.">
+  <meta property="og:title" content="ARKER TV · 복순네 방송국"><meta property="og:description" content="쇼츠 10편 + 긴 이야기 2편. 바람은 밖에, 따뜻함은 안에."><meta property="og:type" content="website"><meta property="og:image" content="assets/posters/L1.webp">
+  <title>ARKER TV · 복순네 방송국</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/BlackHanSans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="intake.js" type="module"></script>
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+  <div class="scroll-meter" aria-hidden="true"><span></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="#main" aria-label="ARKER TV 복순네 방송국 처음으로"><span class="brand-pill">금호아트도어</span><span class="brand-word">ARKER TV</span><span class="on-air" aria-hidden="true"><i></i>ON AIR</span></a>
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="navigation"><span>메뉴</span><i aria-hidden="true"></i></button>
+    <nav id="navigation" aria-label="주 메뉴">
+      <a href="#shorts">쇼츠 극장</a><a href="#long">긴 이야기</a><a href="#lab">바람 실험실</a><a href="#schedule">방송표</a><a href="#doors">아커의 문</a><a href="#cast">등장인물</a>
+    </nav>
+    <div class="header-tools"><button id="sound-toggle" class="sound-toggle" aria-pressed="false" aria-label="소리 끄기" title="소리 끄기"><svg viewBox="0 0 40 36" width="30" height="28" aria-hidden="true" focusable="false"><path d="M5 13h8L24 4v28L13 23H5z" fill="currentColor" stroke="#111" stroke-width="3" stroke-linejoin="round"/><g class="waves" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M29 11q7 7 0 14"/><path d="M34 6q11 12 0 24"/></g><g class="slash"><path d="M6 32 34 4" stroke="#111" stroke-width="7" stroke-linecap="round"/><path d="M6 32 34 4" stroke="#e8402c" stroke-width="4" stroke-linecap="round"/></g></svg></button><button id="motion-toggle" class="motion-toggle" aria-pressed="true">모션 켜짐</button><a class="btn btn-red btn-sm" href="#contact">견적 문의</a></div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="rays rays-blue" aria-hidden="true"></div>
+      <div class="halftone" aria-hidden="true"></div>
+      <div class="hero-floaters" aria-hidden="true">
+        <span class="sticker s-kwang" data-depth=".22">쾅!</span>
+        <span class="sticker s-sreuk" data-depth=".14">스르륵~</span>
+        <span class="sticker s-ttak" data-depth=".3">딸깍!</span>
+        <span class="snow sn1" data-depth=".4">❄</span><span class="snow sn2" data-depth=".18">❄</span><span class="snow sn3" data-depth=".33">❄</span>
+        <span class="star st1" data-depth=".26">★</span><span class="star st2" data-depth=".12">★</span>
+        <img class="mini-door md1" src="assets/props/door-gd902.webp" alt="" width="284" height="560" data-depth=".2" decoding="async">
+        <img class="mini-door md2" src="assets/props/door-gd200.webp" alt="" width="285" height="560" data-depth=".1" decoding="async">
+      </div>
+      <div class="hero-inner">
+        <p class="hero-badge"><span>★ 쇼츠 10편 + 긴 이야기 2편 대공개 ★</span></p>
+        <h1 id="hero-title"><span class="sr-only">문 하나 바꿨더니 온 동네가 난리여!</span><span class="kinetic" aria-hidden="true" data-line="문 하나 바꿨더니"></span><span class="kinetic yellow" aria-hidden="true" data-line="온 동네가 난리여!"></span></h1>
+        <div class="hero-bubble"><span class="name-tag tag-orange">복순 할매</span><p id="hero-quote" aria-live="off">바람은 밖에, 따뜻함은 안에!</p></div>
+        <div class="hero-actions"><button class="btn btn-red btn-lg" data-watch="L1"><span class="tri" aria-hidden="true"></span>본편 보기</button><a class="btn btn-yellow btn-lg" href="#shorts">쇼츠 몰아보기</a></div>
+      </div>
+      <div class="hero-stage">
+        <img class="hero-person hp-left" src="assets/cutouts/grandpa-laugh.webp" width="304" height="720" alt="웃는 만복 영감" fetchpriority="high">
+        <div class="tv" id="hero-tv">
+          <span class="antenna" aria-hidden="true"><i></i><i></i></span>
+          <div class="tv-screen">
+            <video id="tv-video" src="assets/videos/L1.mp4" poster="assets/posters/L1.webp" loop playsinline controls preload="metadata" aria-label="복순 할매네 겨울나기 본편"><track kind="captions" srclang="ko" label="한국어" src="assets/captions/L1.vtt"></video>
+            <canvas id="tv-static" aria-hidden="true"></canvas>
+            <span class="scanlines" aria-hidden="true"></span>
+            <span class="tv-live" aria-hidden="true"><i></i>ON AIR</span>
+          </div>
+          <div class="tv-panel" role="group" aria-label="채널을 누르면 큰 화면으로 봅니다">
+            <button class="knob" data-channel="L1" aria-label="CH 1 복순 할매네 겨울나기 큰 화면으로 보기"><span aria-hidden="true"></span>CH 1</button>
+            <button class="knob" data-channel="L2" aria-label="CH 2 아커 문 고르기 완전 정복 큰 화면으로 보기"><span aria-hidden="true"></span>CH 2</button>
+            <span class="speaker" aria-hidden="true"></span>
+          </div>
+          <span class="tv-feet" aria-hidden="true"></span>
+          <button class="tv-label" data-watch="L1">복순 할매네 겨울나기 · 2:39 — 크게 보기 →</button>
+        </div>
+        <img class="hero-person hp-right" src="assets/cutouts/halmae-point.webp" width="495" height="720" alt="손가락으로 TV를 가리키는 복순 할매" fetchpriority="high">
+        <span class="burst hero-burst" aria-hidden="true"><span>방송<br>시작!</span></span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>단열 ★ 4면 압착 ★ 2중 가스켓 ★ 도어클로저 ★ 디자인 5종 ★ 색 4종 ★ 오십 년 함께한 문 ★ 바람은 밖에, 따뜻함은 안에 ★&nbsp;</span><span>단열 ★ 4면 압착 ★ 2중 가스켓 ★ 도어클로저 ★ 디자인 5종 ★ 색 4종 ★ 오십 년 함께한 문 ★ 바람은 밖에, 따뜻함은 안에 ★&nbsp;</span></div></div>
+
+    <!-- 2. SHORTS -->
+    <section id="shorts" class="shorts" aria-labelledby="shorts-title">
+      <div class="halftone yellow-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="label-chip red-chip">10편 전편 공개</p>
+            <h2 id="shorts-title" class="comic-title"><span class="burst burst-sm spin" aria-hidden="true"><span>10편</span></span>쇼츠 극장</h2>
+            <p class="section-sub">1분이면 끝나는 복순네 이야기. 카드에 마우스를 올리면 미리 움직여요.</p>
+          </div>
+          <div class="rail-controls"><button class="square-btn" id="rail-prev" aria-controls="short-rail" aria-label="이전 쇼츠">←</button><button class="square-btn" id="rail-next" aria-controls="short-rail" aria-label="다음 쇼츠">→</button></div>
+        </div>
+        <div id="short-rail" class="short-rail" role="group" aria-label="쇼츠 10편"><p class="loading">에피소드를 불러오는 중…</p></div>
+        <div class="rail-progress" aria-hidden="true"><span id="rail-bar"></span></div>
+      </div>
+    </section>
+
+    <!-- 3. LONG FILMS -->
+    <section id="long" class="long" aria-labelledby="long-title">
+      <div class="rays rays-pink" aria-hidden="true"></div>
+      <div class="halftone" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="title-plate reveal"><h2 id="long-title" class="comic-title">긴 이야기 <small>SPECIAL</small></h2><span class="tape">NEW! ★</span></div>
+        <div id="long-grid" class="long-grid"></div>
+      </div>
+    </section>
+
+    <!-- 4. WIND LAB -->
+    <section id="lab" class="lab" aria-labelledby="lab-title">
+      <div class="wrap lab-grid">
+        <div class="lab-stage reveal" id="lab-stage" data-door="arker" data-season="winter">
+          <canvas id="wind-canvas" aria-hidden="true"></canvas>
+          <span class="lab-sign out" aria-hidden="true">밖</span><span class="lab-sign in" aria-hidden="true">안</span>
+          <img id="lab-door" class="lab-door" src="assets/props/door-gd001.webp" width="284" height="560" alt="아커 현관문 GD001" loading="lazy">
+          <img id="lab-halmae" class="lab-halmae" src="assets/cutouts/halmae-laugh.webp" width="373" height="720" alt="따뜻해서 웃는 복순 할매" loading="lazy">
+          <div class="thermo" aria-hidden="true"><span id="thermo-fill"></span></div>
+          <p class="lab-pop" id="lab-pop" aria-hidden="true">튕~!</p>
+        </div>
+        <div class="lab-copy reveal">
+          <p class="label-chip blue-chip">휭이 · 후끈이 출동</p>
+          <h2 id="lab-title" class="comic-title dark">바람 실험실</h2>
+          <p class="section-sub">바람 캐릭터 휭이와 후끈이가 문에 부딪혀요. 문과 계절을 바꿔 보세요.</p>
+          <div class="seg" role="group" aria-label="문 선택"><button data-lab-door="old" aria-pressed="false">옛날 문</button><button data-lab-door="arker" aria-pressed="true">아커 문</button></div>
+          <div class="seg" role="group" aria-label="계절 선택"><button data-lab-season="winter" aria-pressed="true">❄ 겨울 · 휭이</button><button data-lab-season="summer" aria-pressed="false">☀ 여름 · 후끈이</button></div>
+          <p class="lab-result" id="lab-result" aria-live="polite">아커 문 앞에서 휭이가 길을 잃었어요. 집 안은 따뜻!</p>
+          <div class="tech-chips" role="group" aria-label="본편에서 기술 확인하기">
+            <button class="chip" data-watch="L1" data-start="43">4면 압착 ▶ 0:43</button>
+            <button class="chip" data-watch="L1" data-start="55">2중 가스켓 ▶ 0:55</button>
+            <button class="chip" data-watch="L1" data-start="83">도어클로저 ▶ 1:23</button>
+            <button class="chip" data-watch="EP04">여름 편 ▶ EP04</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SCHEDULE -->
+    <section id="schedule" class="schedule" aria-labelledby="schedule-title">
+      <div class="halftone cream-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="schedule-head panel reveal">
+          <div><p class="label-chip red-chip">ARKER TV GUIDE</p><h2 id="schedule-title" class="comic-title dark">전체 방송표</h2><p class="section-sub">쇼츠와 긴 이야기 12편을 주제별로 골라 보세요.</p></div>
+          <label class="search"><span class="sr-only">영상 검색</span><span aria-hidden="true">🔍</span><input id="film-search" type="search" placeholder="어떤 이야기를 찾으세요?" autocomplete="off"></label>
+        </div>
+        <div class="filters" role="group" aria-label="주제 필터" id="topic-filters"></div>
+        <div class="format-switch seg small" role="group" aria-label="영상 형식"><button data-format="all" aria-pressed="true">전체</button><button data-format="short" aria-pressed="false">쇼츠</button><button data-format="long" aria-pressed="false">긴 이야기</button></div>
+        <p id="results-status" class="results" role="status" aria-live="polite"></p>
+        <div id="film-grid" class="film-grid"></div>
+        <p id="empty-state" class="empty" hidden>그런 이야기는 아직 방송 전이여! 다른 말로 찾아봐유.</p>
+      </div>
+    </section>
+
+    <!-- 6. DOORS -->
+    <section id="doors" class="doors" aria-labelledby="doors-title">
+      <div class="rays rays-mint" aria-hidden="true"></div>
+      <div class="halftone" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="center-head reveal"><p class="label-chip cream-chip">ARKER DOOR LINEUP</p><h2 id="doors-title" class="comic-title">아커의 문</h2><p class="section-sub light">영상에 나온 다섯 가지 디자인. 무대 위 문을 눌러 보세요.</p></div>
+        <div class="door-stage reveal">
+          <div class="spotlight" aria-hidden="true"></div>
+          <div class="door-row" role="group" aria-label="현관문 모델 선택">
+            <button class="door-pick" data-model="GD001" aria-pressed="true"><img src="assets/props/door-gd001.webp" width="284" height="560" alt="" loading="lazy"><span>GD001</span></button>
+            <button class="door-pick" data-model="GD001FD" aria-pressed="false"><img src="assets/props/door-gd001fd.webp" width="284" height="560" alt="" loading="lazy"><span>GD001FD</span></button>
+            <button class="door-pick" data-model="GD902" aria-pressed="false"><img src="assets/props/door-gd902.webp" width="284" height="560" alt="" loading="lazy"><span>GD902</span></button>
+            <button class="door-pick" data-model="GD200" aria-pressed="false"><img src="assets/props/door-gd200.webp" width="285" height="560" alt="" loading="lazy"><span>GD200</span></button>
+            <button class="door-pick" data-model="GD100" aria-pressed="false"><img src="assets/props/door-gd100.webp" width="284" height="560" alt="" loading="lazy"><span>GD100</span></button>
+          </div>
+          <div class="stage-floor" aria-hidden="true"></div>
+        </div>
+        <div class="door-card panel reveal" aria-live="polite">
+          <div><p class="label-chip red-chip">선택한 문</p><h3><span id="model-code">AHS-GD001</span> <span id="model-title">나뭇결의 여유</span></h3><p id="model-description">목재 무늬를 따라 이어지는 차분한 표정. 벽돌이나 목재 외관과 함께 살펴보기 좋은 디자인입니다.</p>
+            <div class="colors"><span class="colors-label">색 4종</span><span class="swatch"><img src="assets/props/color-black.webp" width="100" height="200" alt="" loading="lazy">블랙</span><span class="swatch"><img src="assets/props/color-darkbrown.webp" width="100" height="200" alt="" loading="lazy">다크브라운</span><span class="swatch"><img src="assets/props/color-gray.webp" width="100" height="200" alt="" loading="lazy">그레이</span><span class="swatch"><img src="assets/props/color-walnut.webp" width="100" height="200" alt="" loading="lazy">월넛</span></div>
+            <p class="small">모양과 규격, 프레임 마감, 경첩 방향, 도어록은 상담에서 함께 고릅니다.</p>
+          </div>
+          <div class="door-card-actions"><button class="btn btn-red" id="model-inquiry">이 문으로 견적 문의 ▸</button><button class="btn btn-cream" data-watch="L2" data-start="19">디자인 5종 영상 ▶</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CAST -->
+    <section id="cast" class="cast" aria-labelledby="cast-title">
+      <div class="halftone cream-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head"><div><p class="label-chip red-chip">복순네 골목 식구들</p><h2 id="cast-title" class="comic-title dark">등장인물</h2><p class="section-sub">카드를 누르면 표정이 바뀌어요.</p></div><span class="tape tape-yellow">개성만점 5인방</span></div>
+        <div id="cast-grid" class="cast-grid"></div>
+      </div>
+    </section>
+
+    <!-- 8. ALBUM -->
+    <section id="album" class="album" aria-labelledby="album-title">
+      <div class="rays rays-yellow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="center-head reveal"><p class="label-chip red-chip">EP10 복순네 문 앨범</p><h2 id="album-title" class="comic-title">앨범 넘겨 보기</h2><p class="section-sub dark">아홉 장의 추억. 사진을 누르면 그 편이 방송돼요.</p></div>
+        <div id="album-board" class="album-board"></div>
+      </div>
+    </section>
+
+    <!-- 9. CONTACT -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <ol class="steps reveal"><li><b>1</b><span><small>STEP 01</small>영상 보고 웃기</span></li><li><b>2</b><span><small>STEP 02</small>우리 집 문 고르기</span></li><li><b>3</b><span><small>STEP 03</small>견적 문의 남기기</span></li></ol>
+        <div class="contact-card panel reveal">
+          <img class="contact-jinwoo" src="assets/cutouts/jinwoo-point.webp" width="374" height="720" alt="안내하는 아커 진우" loading="lazy">
+          <div class="contact-copy"><p class="label-chip red-chip">간편 문의</p><h2 id="contact-title" class="comic-title dark">우리 집 문도<br>복순 할매네처럼?</h2><p>어울리는 디자인이 궁금하다면 우리 집 입구 이야기를 들려주세요.</p><a class="text-link" href="https://jatu3.github.io/arker-showroom/" target="_blank" rel="noopener">아커 메인 쇼룸 ↗</a></div>
+          <form id="inquiry-form" class="inquiry-form">
+            <fieldset class="seg kind"><legend class="sr-only">문의 유형</legend><label><input type="radio" name="kind" value="quote" checked><span>견적 요청</span></label><label><input type="radio" name="kind" value="contact"><span>고객 문의</span></label></fieldset>
+            <div class="form-row"><label>이름 <em>*</em><input name="name" autocomplete="name" maxlength="50" required></label><label>연락처 <em>*</em><input name="phone" type="tel" autocomplete="tel" maxlength="30" pattern="[0-9+() .\-]{8,30}" required placeholder="010-0000-0000"></label></div>
+            <div class="form-row"><label>이메일<input name="email" type="email" autocomplete="email" maxlength="120"></label><label>관심 제품<select name="product"><option value="미정">상담 후 결정</option><option>AHS-GD001</option><option>AHS-GD001FD</option><option>AHS-GD902</option><option>AHS-GD200</option><option>AHS-GD100</option></select></label></div>
+            <div class="form-row quote-fields"><label>설치 지역<input name="region" maxlength="100" placeholder="시 / 군 / 구 (선택)"></label><label>대략적인 규격<input name="dimensions" maxlength="100" placeholder="가로 × 세로 mm (선택)"></label></div>
+            <label>문의 내용 <em>*</em><textarea name="message" rows="4" minlength="5" maxlength="3000" required placeholder="설치 공간과 궁금한 점을 알려주세요."></textarea></label>
+            <div class="honeypot" aria-hidden="true"><label>회사 웹사이트<input name="website" tabindex="-1" autocomplete="off"></label></div>
+            <label class="consent"><input type="checkbox" name="consent" required><span>상담을 위한 개인정보 수집·이용에 동의합니다. <button class="inline-button" id="privacy-open" type="button">내용 보기</button></span></label>
+            <p id="connection-note" class="small"></p>
+            <p id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+            <button class="btn btn-red btn-lg submit" type="submit"><span>상담 요청 보내기</span><b aria-hidden="true">★</b></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><a href="#main" class="brand" aria-label="ARKER TV 처음으로"><span class="brand-pill">금호아트도어</span><span class="brand-word">ARKER TV</span></a><p>바람은 밖에, 따뜻함은 안에.<br>복순네 방송국은 매일 문 열려 있어유.</p><div class="footer-links"><a href="#schedule">방송표</a><a href="#doors">아커의 문</a><button id="privacy-footer" class="plain">개인정보 수집 안내</button><button id="motion-footer" class="plain" aria-pressed="true">모션 켜짐</button><a href="https://jatu3.github.io/arker-showroom/#location" target="_blank" rel="noopener">찾아오는 길 ↗</a></div><small>© 금호아트도어 ARKER</small></div></footer>
+
+  <dialog id="cinema" aria-labelledby="cinema-title">
+    <div class="cinema-frame">
+      <div class="door-curtain" aria-hidden="true"><span class="leaf left"></span><span class="leaf right"></span></div>
+      <div class="cinema-bar"><span id="cinema-number" class="label-chip yellow-chip"></span><h2 id="cinema-title"></h2><button id="cinema-close" class="square-btn" aria-label="영상 닫기">×</button></div>
+      <div class="cinema-layout">
+        <div class="cinema-stage"><video id="cinema-video" controls playsinline preload="metadata"><track kind="captions" srclang="ko" label="한국어"></video><p id="playback-status" role="status" aria-live="polite"></p><button id="playback-retry" class="btn btn-yellow" hidden>재생 시작</button>
+          <div id="next-up" class="next-up" hidden><p>다음 편 <b id="next-title"></b></p><p class="count"><span id="next-count">5</span>초 뒤 방송</p><div><button id="next-now" class="btn btn-red btn-sm">바로 보기</button><button id="next-cancel" class="btn btn-cream btn-sm">그만 볼래요</button></div></div>
+        </div>
+        <aside class="cinema-info"><p id="cinema-hook" class="speech"></p><div id="chapters" class="chapters" role="group" aria-label="챕터 선택"></div><p class="small">자막은 플레이어 메뉴에서 켜고 끌 수 있어요.</p><div class="cinema-actions"><button id="previous-film" class="btn btn-cream btn-sm">← 이전 편</button><button id="next-film" class="btn btn-yellow btn-sm">다음 편 →</button></div><label class="autonext"><input type="checkbox" id="autonext" checked> 끝나면 다음 편 이어보기</label><a id="caption-download" class="text-link" download>한글 자막 받기 ↓</a><a class="text-link" href="#doors" id="cinema-doors">영상에 나온 문 보기 ↗</a></aside>
+      </div>
+    </div>
+  </dialog>
+  <dialog id="privacy-dialog" aria-labelledby="privacy-title"><button class="square-btn privacy-close" aria-label="개인정보 안내 닫기">×</button><h2 id="privacy-title">상담을 위한 개인정보 수집·이용</h2><dl><dt>수집 목적</dt><dd>제품 안내, 견적 및 고객 문의 응대</dd><dt>수집 항목</dt><dd>필수: 이름, 연락처, 문의 내용<br>선택: 이메일, 관심 제품, 설치 지역, 규격</dd><dt>보유 기간</dt><dd>상담 종료 후 1년간 보관합니다.</dd><dt>동의 거부</dt><dd>수집·이용에 동의하지 않을 수 있으며, 미동의 시 온라인 상담 접수가 제한됩니다.</dd></dl><p>개인정보 관련 문의는 이 페이지의 고객 문의 양식에서 접수할 수 있습니다.</p></dialog>
+  <noscript><p class="wrap noscript">영상 목록에는 JavaScript가 필요합니다. <a href="assets/videos/L1.mp4">겨울나기 본편</a> · <a href="assets/videos/L2.mp4">문 고르기 본편</a></p></noscript>
+</body>
+</html>

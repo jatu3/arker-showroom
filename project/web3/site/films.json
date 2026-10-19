@@ -1,0 +1,220 @@
+[
+  {
+    "id": "EP01",
+    "title": "할매, 문 바꿨슈?",
+    "hook": "문은 닫았는데, 바람은 왜 들어와?",
+    "topic": "단열",
+    "format": "short",
+    "seconds": 82.4,
+    "number": 1,
+    "video": "assets/videos/EP01.mp4",
+    "poster": "assets/posters/EP01.webp",
+    "captions": "assets/captions/EP01.vtt",
+    "chapters": [],
+    "source": "project-door/v001/07_최종산출물/02_숏폼/01_ark_shorts_A_v02.mp4"
+  },
+  {
+    "id": "EP02",
+    "title": "영감, 쾅이 안 되네?",
+    "hook": "쾅 대신 스르륵. 영감의 힘은 어디로?",
+    "topic": "하드웨어",
+    "format": "short",
+    "seconds": 59.7,
+    "number": 2,
+    "video": "assets/videos/EP02.mp4",
+    "poster": "assets/posters/EP02.webp",
+    "captions": "assets/captions/EP02.vtt",
+    "chapters": [],
+    "source": "project-door/v002/07_최종산출물/02_숏폼/02_ark_shorts_B_v02.mp4"
+  },
+  {
+    "id": "EP03",
+    "title": "복순 할매 홈쇼핑",
+    "hook": "디자인 다섯, 색 네 가지. 골라 보쇼!",
+    "topic": "디자인",
+    "format": "short",
+    "seconds": 60.0,
+    "number": 3,
+    "video": "assets/videos/EP03.mp4",
+    "poster": "assets/posters/EP03.webp",
+    "captions": "assets/captions/EP03.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/03_ark_shorts_EP03_v02.mp4"
+  },
+  {
+    "id": "EP04",
+    "title": "여름에도 아커여?",
+    "hook": "한여름 후끈이도 문 앞에서 멈칫.",
+    "topic": "단열",
+    "format": "short",
+    "seconds": 57.1,
+    "number": 4,
+    "video": "assets/videos/EP04.mp4",
+    "poster": "assets/posters/EP04.webp",
+    "captions": "assets/captions/EP04.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/04_ark_shorts_EP04_v02.mp4"
+  },
+  {
+    "id": "EP05",
+    "title": "영감, 또 문 밖이여?",
+    "hook": "한밤중 문 밖에 남은 영감의 비밀.",
+    "topic": "하드웨어",
+    "format": "short",
+    "seconds": 60.0,
+    "number": 5,
+    "video": "assets/videos/EP05.mp4",
+    "poster": "assets/posters/EP05.webp",
+    "captions": "assets/captions/EP05.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/05_ark_shorts_EP05_v02.mp4"
+  },
+  {
+    "id": "EP06",
+    "title": "하늘이의 왜왜왜",
+    "hook": "궁금한 건 못 참는 손녀의 질문 시간.",
+    "topic": "브랜드",
+    "format": "short",
+    "seconds": 57.1,
+    "number": 6,
+    "video": "assets/videos/EP06.mp4",
+    "poster": "assets/posters/EP06.webp",
+    "captions": "assets/captions/EP06.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/06_ark_shorts_EP06_v02.mp4"
+  },
+  {
+    "id": "EP07",
+    "title": "옥순 할매의 질투",
+    "hook": "옆집 금색 문과 시작된 문 자랑 대결.",
+    "topic": "디자인",
+    "format": "short",
+    "seconds": 55.4,
+    "number": 7,
+    "video": "assets/videos/EP07.mp4",
+    "poster": "assets/posters/EP07.webp",
+    "captions": "assets/captions/EP07.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/07_ark_shorts_EP07_v02.mp4"
+  },
+  {
+    "id": "EP08",
+    "title": "복순 할매의 주문 교실",
+    "hook": "모양부터 배송까지, 영감도 백 점!",
+    "topic": "구매 가이드",
+    "format": "short",
+    "seconds": 60.0,
+    "number": 8,
+    "video": "assets/videos/EP08.mp4",
+    "poster": "assets/posters/EP08.webp",
+    "captions": "assets/captions/EP08.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/08_ark_shorts_EP08_v02.mp4"
+  },
+  {
+    "id": "EP09",
+    "title": "영감의 50주년 선물",
+    "hook": "오십 년 함께한 사람에게 건넨 선물.",
+    "topic": "이야기",
+    "format": "short",
+    "seconds": 60.1,
+    "number": 9,
+    "video": "assets/videos/EP09.mp4",
+    "poster": "assets/posters/EP09.webp",
+    "captions": "assets/captions/EP09.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/09_ark_shorts_EP09_v02.mp4"
+  },
+  {
+    "id": "EP10",
+    "title": "복순네 문 앨범",
+    "hook": "바람부터 기념일까지, 아홉 장의 추억.",
+    "topic": "이야기",
+    "format": "short",
+    "seconds": 60.0,
+    "number": 10,
+    "video": "assets/videos/EP10.mp4",
+    "poster": "assets/posters/EP10.webp",
+    "captions": "assets/captions/EP10.vtt",
+    "chapters": [],
+    "source": "project-door/v003/07_최종산출물/02_숏폼/10_ark_shorts_EP10_v02.mp4"
+  },
+  {
+    "id": "L1",
+    "title": "복순 할매네 겨울나기",
+    "hook": "바람은 밖에, 따뜻함은 안에.",
+    "topic": "단열",
+    "format": "long",
+    "seconds": 159.0,
+    "number": 1,
+    "video": "assets/videos/L1.mp4",
+    "poster": "assets/posters/L1.webp",
+    "captions": "assets/captions/L1.vtt",
+    "chapters": [
+      [
+        0,
+        "오프닝 · 바람이 사는 집"
+      ],
+      [
+        18,
+        "방주를 만드는 사람"
+      ],
+      [
+        43,
+        "바람이 길을 잃다"
+      ],
+      [
+        77,
+        "쾅 대신 스르륵"
+      ],
+      [
+        103,
+        "열쇠 대신 번호"
+      ],
+      [
+        131,
+        "정리 · 바람은 밖에, 따뜻함은 안에"
+      ]
+    ],
+    "source": "project-door/v003/07_최종산출물/03_롱폼/L1_ark_long_v02.mp4"
+  },
+  {
+    "id": "L2",
+    "title": "아커 문 고르기 완전 정복",
+    "hook": "우리 집 입구에 어울리는 한 짝을 찾아서.",
+    "topic": "구매 가이드",
+    "format": "long",
+    "seconds": 140.7,
+    "number": 2,
+    "video": "assets/videos/L2.mp4",
+    "poster": "assets/posters/L2.webp",
+    "captions": "assets/captions/L2.vtt",
+    "chapters": [
+      [
+        0,
+        "오프닝 · 복순 할매 홈쇼핑 특집"
+      ],
+      [
+        19,
+        "디자인 5종"
+      ],
+      [
+        46,
+        "색 4종"
+      ],
+      [
+        65,
+        "크기와 맞춤"
+      ],
+      [
+        91,
+        "경첩과 도어록"
+      ],
+      [
+        112,
+        "배송과 정리"
+      ]
+    ],
+    "source": "project-door/v003/07_최종산출물/03_롱폼/L2_ark_long_v02.mp4"
+  }
+]

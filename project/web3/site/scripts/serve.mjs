@@ -1,0 +1,10 @@
+import http from 'node:http';import fs from 'node:fs';import path from 'node:path';import {gzipSync} from 'node:zlib';
+const root=path.resolve(import.meta.dirname,'..');const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.mp4':'video/mp4','.webp':'image/webp','.vtt':'text/vtt; charset=utf-8','.svg':'image/svg+xml','.woff2':'font/woff2','.ttf':'font/ttf'};
+http.createServer((req,res)=>{let file;try{file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));}catch{res.writeHead(400).end();return;}
+if(file!==root&&!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}
+try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');const {size}=fs.statSync(file);res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');res.setHeader('Accept-Ranges','bytes');res.setHeader('Cache-Control','no-cache');
+ if(!req.headers.range&&/\b(?:gzip)\b/.test(req.headers['accept-encoding']||'')&&/\.(html|css|js|json|svg|vtt)$/.test(file)){const data=gzipSync(fs.readFileSync(file));res.writeHead(200,{'Content-Encoding':'gzip','Vary':'Accept-Encoding','Content-Length':data.length});res.end(req.method==='HEAD'?undefined:data);return;}
+ let start=0,end=size-1,status=200;
+ if(req.headers.range){const m=req.headers.range.match(/^bytes=(\d+)-(\d*)$/);if(!m){res.writeHead(416,{'Content-Range':`bytes */${size}`}).end();return;}start=Number(m[1]);end=m[2]?Math.min(Number(m[2]),size-1):size-1;if(start>end||start>=size){res.writeHead(416,{'Content-Range':`bytes */${size}`}).end();return;}status=206;res.setHeader('Content-Range',`bytes ${start}-${end}/${size}`);}
+ res.setHeader('Content-Length',end-start+1);res.writeHead(status);if(req.method==='HEAD')res.end();else{const stream=fs.createReadStream(file,{start,end});stream.on('error',()=>res.destroy());req.on('close',()=>stream.destroy());stream.pipe(res);}
+}catch{res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'}).end('찾을 수 없는 페이지입니다.');}}).listen(5193,'127.0.0.1',()=>console.log('ARKER web3: http://127.0.0.1:5193'));
