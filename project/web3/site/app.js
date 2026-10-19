@@ -136,7 +136,8 @@ $$('[data-channel]').forEach(b => b.addEventListener('click', () => {
   pauseTv();
   setTimeout(() => navigateFilm(id), motionOn() ? 300 : 0);
 }));
-new IntersectionObserver(([e]) => { heroVisible = e.intersectionRatio >= .5; syncTv(); }, {threshold: [0, .5, 1]}).observe($('#hero-tv'));
+// tj001 처럼 첫 화면에서 바로 재생: TV가 화면 아래 반 화면 이내에 있으면 재생, 지나쳐 내려가면 멈춤
+new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; syncTv(); }, {rootMargin: '0px 0px 60% 0px'}).observe($('#hero-tv'));
 motionListeners.push(syncTv);
 
 /* ---------- 영상 카드 ---------- */
