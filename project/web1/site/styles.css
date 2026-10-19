@@ -1,5 +1,5 @@
 @font-face{font-family:Space;src:url('./assets/fonts/SpaceGrotesk.woff2') format('woff2');font-weight:300 700;font-display:swap}
-@font-face{font-family:Pretendard;src:url('./assets/fonts/PretendardUI.woff2?v=20261018-hero-restore') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:Pretendard;src:url('./assets/fonts/PretendardUI.woff2?v=20261019-brand-copy') format('woff2');font-weight:100 900;font-display:swap}
 :root{color-scheme:light;--bg:#f4ecd9;--ink:#233d35;--muted:#59675a;--line:#b8bcaa;--accent:#b93925;--panel:#e9e3d2;--paper:#fff8ee;--teal:#406f72;--image:#f5f5f5;--max:1328px}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:dark;--bg:#1b302b;--ink:#f4ecd9;--muted:#c0cabc;--line:#53665b;--accent:#f39778;--panel:#263f36}}
 :root[data-theme=dark]{color-scheme:dark;--bg:#1b302b;--ink:#f4ecd9;--muted:#c0cabc;--line:#53665b;--accent:#f39778;--panel:#263f36}
